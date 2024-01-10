@@ -34,6 +34,12 @@ public static class QuoteService
             httpContext.Response.StatusCode = StatusCodes.Status204NoContent;
         });
         
+        app.MapGet("/api/quotes/random", async (IQuoteRepository quoteRepository, HttpContext httpContext) =>
+        {
+            var quote = await quoteRepository.GetRandom();
+            return Results.Ok(quote.ToContract());
+        });
+        
         return app;
     }
 }

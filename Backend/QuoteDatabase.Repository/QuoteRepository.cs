@@ -31,6 +31,12 @@ public class QuoteRepository : IQuoteRepository
         }
     }
 
+    public async Task<Quote> GetRandom()
+    {
+        int skipper = Random.Shared.Next(0, _dbContext.Quotes.Count());
+        return _dbContext.Quotes.Skip(skipper).Take(1).First().ToQuoteModel();
+    }
+
     public async Task<bool> Delete(int id)
     {
         var entity = _dbContext.Quotes.FirstOrDefault(b => b.QuoteId == id);

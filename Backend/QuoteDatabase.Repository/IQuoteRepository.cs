@@ -7,4 +7,5 @@ public interface IQuoteRepository
     Task<Quote?> Get(int id);
     Task<bool> Delete(int id);
     Task<IEnumerable<Quote>> GetAll();
+    Task<Quote> GetRandom();
 }
