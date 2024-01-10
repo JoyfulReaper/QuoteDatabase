@@ -18,7 +18,7 @@ export class AddSongComponent {
     title: new FormControl<string>(''),
     album: new FormControl<string>(''),
     artist: new FormControl<string | null>(''),
-    track: new FormControl<number | null>(0),
+    track: new FormControl<number | null>(null),
     text: new FormControl<string>(''),
   });
 

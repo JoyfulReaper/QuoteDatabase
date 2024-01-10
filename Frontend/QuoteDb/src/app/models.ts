@@ -31,6 +31,13 @@ export class Movie {
     actorName: string;
 }
 
+export class MovieRequest {
+    text: string;
+    title: string;
+    characterName: string;
+    actorName: string;
+}
+
 export class Book {
     quoteId?: number;
     text: string;
@@ -39,4 +46,26 @@ export class Book {
     author: string;
     chapter?: string;
     page?: number;
+}
+
+export class BookRequest {
+    text: string;
+    title: string;
+    author: string;
+    chapter?: string;
+    page?: number;
+}
+
+export class Person {
+    quoteId?: number;
+    text: string;
+    authorDisplay: string;
+    firstName: string;
+    lastName: string;
+}
+
+export class PersonRequest {
+    text: string;
+    firstName: string;
+    lastName: string;
 }

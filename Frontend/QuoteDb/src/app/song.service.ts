@@ -22,7 +22,7 @@ export class SongService {
 
   async createSong(song: SongRequest) {
     const url = `${this.baseUrl}/api/quotes/songs`;
-    return await firstValueFrom(this.http.post<Song>(url, song));
+    return await firstValueFrom(this.http.post<SongRequest>(url, song));
   }
 
   async updateSong(song: Song) {
