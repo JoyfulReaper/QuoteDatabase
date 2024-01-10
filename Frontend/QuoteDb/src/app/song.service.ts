@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { Song } from './models';
+import { Song, SongRequest } from './models';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class SongService {
     return await firstValueFrom(this.http.get<Song>(url));
   }
 
-  async createSong(song: Song) {
+  async createSong(song: SongRequest) {
     const url = `${this.baseUrl}/api/quotes/songs`;
     return await firstValueFrom(this.http.post<Song>(url, song));
   }

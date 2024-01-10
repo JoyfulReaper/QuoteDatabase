@@ -8,6 +8,14 @@ export class Song {
     track?: number;
 }
 
+export class SongRequest {
+    text: string;
+    title: string;
+    album?: string;
+    artist?: string;
+    track?: number;
+}
+
 export class Quote {
     quoteId?: number;
     text: string;
