@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { Song } from '../models';
+import { SongService } from '../song.service';
 
 @Component({
   selector: 'app-add-song',
@@ -8,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrl: './add-song.component.css'
 })
 export class AddSongComponent {
+
+  constructor(@Inject(SongService) private service: SongService) {}
 
 }

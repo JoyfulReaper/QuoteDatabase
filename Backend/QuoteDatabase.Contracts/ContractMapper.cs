@@ -53,7 +53,7 @@ public static class ContractMapper
     public static Models.Book ToModel(this Contracts.BookRequest bookContract, int quoteId = 0)
     {
         return new Models.Book(quoteId,
-            bookContract.QuoteText,
+            bookContract.Text,
             bookContract.Title, 
             bookContract.Author,
             bookContract.Chapter, 
@@ -63,7 +63,7 @@ public static class ContractMapper
     public static Models.Movie ToModel(this Contracts.MovieRequest movieContract, int quoteId = 0)
     {
         return new Models.Movie(quoteId,
-            movieContract.QuoteText,
+            movieContract.Text,
             movieContract.Title, 
             movieContract.CharacterName,
             movieContract.ActorName);
@@ -72,7 +72,7 @@ public static class ContractMapper
     public static Models.Song ToModel(this Contracts.SongRequest songContract, int quoteId = 0)
     {
         return new Models.Song(quoteId,
-            songContract.QuoteText,
+            songContract.Text,
             songContract.Title, 
             songContract.Artist,
             songContract.Album, 
@@ -82,7 +82,7 @@ public static class ContractMapper
     public static Models.Person ToModel(this Contracts.PersonRequest personContract, int quoteId = 0)
     {
         return new Models.Person(quoteId,
-            personContract.QuoteText,
+            personContract.Text,
             personContract.FirstName, 
             personContract.LastName);
     }
