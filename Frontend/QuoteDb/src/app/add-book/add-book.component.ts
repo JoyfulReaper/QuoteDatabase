@@ -22,10 +22,10 @@ export class AddBookComponent {
     page: new FormControl<number | null>(null),
   });
 
-  onSubmit() {
+  async onSubmit() {
     console.log(this.bookForm.value);
 
     const bookRequest = this.bookForm.value as BookRequest;
-    this.service.createBook(bookRequest);
+    await this.service.createBook(bookRequest);
   }
 }

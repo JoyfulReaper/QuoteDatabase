@@ -29,4 +29,12 @@
   </div>
 </nav>
 
+<main class="container">
+  <h1 class="text-center">QuoteDb</h1>
+  <p>
+    {{quote.text}} - {{quote.authorDisplay}}
+  </p>
+  <button class="btn btn-primary" (click)="getRandomQuote()">Get Random Quote</button>
+</main>
+
 <router-outlet></router-outlet>

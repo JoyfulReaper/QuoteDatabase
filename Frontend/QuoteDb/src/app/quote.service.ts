@@ -25,4 +25,9 @@ export class QuoteService {
     const url = `${this.baseUrl}/api/quotes/${id}`;
     return await firstValueFrom(this.http.delete<Quote>(url));
   }
+
+  async getRandomQuote() {
+    const url = `${this.baseUrl}/api/quotes/random`;
+    return await firstValueFrom(this.http.get<Quote>(url));
+  }
 }
