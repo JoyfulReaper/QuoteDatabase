@@ -1,6 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using QuoteDatabase.Models;
 using QuoteDatabase.Repository.Entities;
+using Book = QuoteDatabase.Repository.Entities.Book;
+using Movie = QuoteDatabase.Repository.Entities.Movie;
+using Person = QuoteDatabase.Repository.Entities.Person;
 using Quote = QuoteDatabase.Models.Quote;
+using Song = QuoteDatabase.Repository.Entities.Song;
 
 namespace QuoteDatabase.Repository;
 
@@ -34,7 +39,8 @@ public class QuoteRepository : IQuoteRepository
     public async Task<Quote> GetRandom()
     {
         int skipper = Random.Shared.Next(0, _dbContext.Quotes.Count());
-        return _dbContext.Quotes.Skip(skipper).Take(1).First().ToQuoteModel();
+        var pick = _dbContext.Quotes.Skip(skipper).Take(1).First();
+        return pick.ToQuoteModel(pick.QuoteType);
     }
 
     public async Task<bool> Delete(int id)
@@ -50,6 +56,6 @@ public class QuoteRepository : IQuoteRepository
 
     public async Task<IEnumerable<Quote>> GetAll()
     {
-        return await _dbContext.Quotes.Select(q => q.ToQuoteModel()).ToListAsync();
+        return await _dbContext.Quotes.Select(q => q.ToQuoteModel(q.QuoteType)).ToListAsync();
     }
 }

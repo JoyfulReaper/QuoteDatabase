@@ -1,3 +1,5 @@
+using QuoteDatabase.Models;
+
 namespace QuoteDatabase.Repository.Entities;
 
 public class Song : Quote
@@ -6,4 +8,5 @@ public class Song : Quote
     public required string Artist { get; set; }
     public string? Album { get; set; }
     public int? Track { get; set; }
+    public override QuoteType QuoteType { get; } = QuoteType.Song;
 }

@@ -67,9 +67,9 @@ public static class EntityMapper
         };
     }
 
-    public static Models.Quote ToQuoteModel(this Entities.Quote quote)
+    public static Models.Quote ToQuoteModel(this Entities.Quote quote, QuoteType quoteType = QuoteType.Unknown)
     {
-        return new Models.Quote(quote.QuoteId, quote.QuoteText, quote.DisplayAuthor);
+        return new Models.Quote(quote.QuoteId, quote.QuoteText, quote.DisplayAuthor, quoteType);
     }
 
     public static Models.Book ToBookModel(this Entities.Book book)

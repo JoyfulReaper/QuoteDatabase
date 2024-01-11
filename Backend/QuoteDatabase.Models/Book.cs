@@ -8,7 +8,7 @@ public class Book : Quote
     public int? Page { get; }
 
     public Book(int quoteId, string quoteText, string title, string author, string? chapter, int? page) 
-        : base (quoteId, quoteText, $"{title} by {author}")
+        : base (quoteId, quoteText, $"{title} by {author}", QuoteType.Book)
     {
         Title = title;
         Author = author;

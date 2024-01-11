@@ -47,7 +47,8 @@ public static class ContractMapper
     {
         return new Contracts.QuoteResponse(quoteModel.QuoteId,
             quoteModel.QuoteText,
-            quoteModel.DisplayAuthor);
+            quoteModel.DisplayAuthor,
+            quoteModel.QuoteType);
     }
     
     public static Models.Book ToModel(this Contracts.BookRequest bookContract, int quoteId = 0)

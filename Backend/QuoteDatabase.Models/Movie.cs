@@ -7,7 +7,7 @@ public class Movie : Quote
     public string? ActorName { get; set; }
     
     public Movie(int quoteId, string quoteText, string title, string characterName, string? actorName)
-        : base (quoteId, quoteText, $"{title} {characterName}")
+        : base (quoteId, quoteText, $"{characterName}, {title}", QuoteType.Movie)
     {
         Title = title;
         CharacterName = characterName;

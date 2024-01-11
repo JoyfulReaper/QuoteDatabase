@@ -1,3 +1,5 @@
-﻿namespace QuoteDatabase.Contracts;
+﻿using QuoteDatabase.Models;
 
-public record QuoteResponse(int QuoteId, string Text, string AuthorDisplay);
+namespace QuoteDatabase.Contracts;
+
+public record QuoteResponse(int QuoteId, string Text, string AuthorDisplay, QuoteType QuoteType);
