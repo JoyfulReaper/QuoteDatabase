@@ -1,7 +1,19 @@
-export class Song {
+export enum QuoteType {
+    Unknown = 0,
+    Book = 1,
+    Movie = 2,
+    Person = 3,
+    Song = 4,
+}
+
+export class Quote {
     quoteId?: number;
     text: string;
     authorDisplay: string;
+    quoteType: QuoteType;
+}
+
+export class Song extends Quote {
     title: string;
     album?: string;
     artist?: string;
@@ -16,16 +28,8 @@ export class SongRequest {
     track?: number;
 }
 
-export class Quote {
-    quoteId?: number;
-    text: string;
-    authorDisplay: string;
-}
 
-export class Movie {
-    quoteId?: number;
-    text: string;
-    authorDisplay: string;
+export class Movie extends Quote {
     title: string;
     characterName: string;
     actorName: string;
@@ -38,10 +42,7 @@ export class MovieRequest {
     actorName: string;
 }
 
-export class Book {
-    quoteId?: number;
-    text: string;
-    authorDisplay: string;
+export class Book extends Quote{
     title: string;
     author: string;
     chapter?: string;
@@ -56,10 +57,7 @@ export class BookRequest {
     page?: number;
 }
 
-export class Person {
-    quoteId?: number;
-    text: string;
-    authorDisplay: string;
+export class Person extends Quote {
     firstName: string;
     lastName: string;
 }

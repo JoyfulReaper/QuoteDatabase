@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { QuoteService } from './quote.service';
-import { Quote } from './models';
+import { Quote, QuoteType } from './models';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +17,14 @@ export class AppComponent {
 
   title = 'QuoteDb';
   quote: Quote = new Quote();
-
+  type: string;
+  
   async ngOnInit() {
     await this.getRandomQuote();
   }
 
   async getRandomQuote() {
     this.quote = await this.service.getRandomQuote();
+    this.type = QuoteType[this.quote.quoteType];
   }
 }

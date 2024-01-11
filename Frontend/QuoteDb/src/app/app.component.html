@@ -30,11 +30,20 @@
 </nav>
 
 <main class="container">
-  <h1 class="text-center">QuoteDb</h1>
-  <p>
-    {{quote.text}} - {{quote.authorDisplay}}
-  </p>
-  <button class="btn btn-primary" (click)="getRandomQuote()">Get Random Quote</button>
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center">QuoteDb</h1>
+      <div class="card w-50 mt-3 mb-3">
+        <div class="card-body">
+          {{quote.text}} - {{quote.authorDisplay}}
+        </div>
+        <div class="card-footer text-body-secondary">
+          <div>{{type}} Quote</div>
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="getRandomQuote()">Get Random Quote</button>
+    </div>
+  </div>
 </main>
 
 <router-outlet></router-outlet>
