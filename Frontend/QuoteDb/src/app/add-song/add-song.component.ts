@@ -2,17 +2,21 @@ import { Component, Inject } from '@angular/core';
 import { SongRequest } from '../models';
 import { SongService } from '../song.service';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-song',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './add-song.component.html',
   styleUrl: './add-song.component.css'
 })
 export class AddSongComponent {
 
   constructor(@Inject(SongService) private service: SongService) {}
+
+  showError = false;
+  showSaved = false;
 
   songForm = new FormGroup({
     title: new FormControl<string>(''),
@@ -22,11 +26,19 @@ export class AddSongComponent {
     text: new FormControl<string>(''),
   });
 
-  onSubmit() {
+  async onSubmit() {
     console.log(this.songForm.value);
 
     const songRequest = this.songForm.value as SongRequest;
-    this.service.createSong(songRequest);
+    try {
+      await this.service.createSong(songRequest);
+      this.songForm.reset();
+      this.showSaved = true;
+      this.showError = false;
+    } catch (ex) {
+      console.log(ex);
+      this.showError = true;
+      this.showSaved = false;
+    }
   }
-
 }

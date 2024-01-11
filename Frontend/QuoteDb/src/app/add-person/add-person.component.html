@@ -1,21 +1,33 @@
 <div class="container">
+    <div class="row" *ngIf="showError">
+        <h1 class="text-danger">
+            An error occurred while adding the person quote. Please try again later.
+        </h1>
+    </div>
+
+    <div class="row" *ngIf="showSaved">
+        <h1 class="text-success text-center">
+            Person saved!
+        </h1>
+    </div>
+
     <h1 class="text-center">Add Person Quote</h1>
 
-    <form>
+    <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-5">
                 <div>
                     <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="fname" class="form-control">
+                    <input type="text" id="fname" name="fname" class="form-control" formControlName="firstName">
                 </div>
                 <div>
                     <label for="quote">Quote</label>
-                    <textarea class="form-control" id="quote" name="quote" rows="3"></textarea>
+                    <textarea class="form-control" id="quote" name="quote" rows="3" formControlName="text"></textarea>
                 </div>
             </div>
             <div class="col-5">
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lname" class="form-control">
+                <input type="text" id="lname" name="lname" class="form-control" formControlName="lastName">
             </div>
         </div>
         <div class="row mt-2">

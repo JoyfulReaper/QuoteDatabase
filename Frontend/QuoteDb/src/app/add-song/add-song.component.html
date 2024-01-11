@@ -1,4 +1,18 @@
 <div class="container">
+
+    <div class="container">
+        <div class="row" *ngIf="showError">
+            <h1 class="text-danger">
+                An error occurred while adding the song quote. Please try again later.
+            </h1>
+        </div>
+    
+        <div class="row" *ngIf="showSaved">
+            <h1 class="text-success text-center">
+                Song saved!
+            </h1>
+        </div>
+
     <h1 class="text-center">Add Song Quote</h1>
 
     <form [formGroup]="songForm" (ngSubmit)="onSubmit()">

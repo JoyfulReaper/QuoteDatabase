@@ -21,17 +21,17 @@ export class MovieService {
     return await firstValueFrom(this.http.get<Movie>(url));
   }
 
-  async createBook(movie: MovieRequest) {
+  async createMovie(movie: MovieRequest) {
     const url = `${this.baseUrl}/api/quotes/movies`;
     return await firstValueFrom(this.http.post<MovieRequest>(url, movie));
   }
 
-  async updateBook(movie: Movie) {
+  async updateMovie(movie: Movie) {
     const url = `${this.baseUrl}/api/quotes/movies/${movie.quoteId}`;
     return await firstValueFrom(this.http.put<Movie>(url, movie));
   }
 
-  async deleteBook(id: number) {
+  async deleteMovie(id: number) {
     const url = `${this.baseUrl}/api/quotes/movies/${id}`;
     return await firstValueFrom(this.http.delete<Movie>(url));
   }
