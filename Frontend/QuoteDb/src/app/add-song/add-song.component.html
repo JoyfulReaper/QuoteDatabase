@@ -48,4 +48,11 @@
             </div>
         </div>
     </form>
+    <div class="row mt-4">
+        <div *ngIf="songForm.invalid && (songForm.dirty || songForm.touched)" class="text-danger">
+            <div *ngIf="title.errors?.['required']">Title is required.</div>
+            <div *ngIf="text.errors?.['required']">Quote is required.</div>
+            <div *ngIf="artist.errors?.['required']">Artist is required.</div>
+        </div>
+    </div>
 </div>
