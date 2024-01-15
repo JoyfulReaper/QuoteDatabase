@@ -8,6 +8,7 @@ import { DisplayBookComponent } from './display-book/display-book.component';
 import { DisplayMovieComponent } from './display-movie/display-movie.component';
 import { DisplayPersonComponent } from './display-person/display-person.component';
 import { DisplaySongComponent } from './display-song/display-song.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 export const routes: Routes = [ { path: "", component: MainPageComponent},
                                 { path: "add-song", component: AddSongComponent },
@@ -18,4 +19,5 @@ export const routes: Routes = [ { path: "", component: MainPageComponent},
                                 { path: "quotes/movies/:id", component: DisplayMovieComponent },
                                 { path: "quotes/people/:id", component: DisplayPersonComponent },
                                 { path: "quotes/songs/:id", component: DisplaySongComponent },
+                                { path: "search/:searchTerm", component: SearchResultsComponent },
 ];

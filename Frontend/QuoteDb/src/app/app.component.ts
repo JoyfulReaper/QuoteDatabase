@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 
 
 @Component({
@@ -12,4 +12,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'QuoteDb';
+
+  constructor(@Inject(Router) private router: Router) {}
+
+  search(searchTerm: string) {
+    this.router.navigate(['/search', searchTerm]);
+  }
 }
