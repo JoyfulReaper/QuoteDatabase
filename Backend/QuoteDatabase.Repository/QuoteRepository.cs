@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using QuoteDatabase.Models;
 using QuoteDatabase.Repository.Entities;
 using Book = QuoteDatabase.Repository.Entities.Book;
 using Movie = QuoteDatabase.Repository.Entities.Movie;
@@ -41,6 +40,12 @@ public class QuoteRepository : IQuoteRepository
         int skipper = Random.Shared.Next(0, _dbContext.Quotes.Count());
         var pick = _dbContext.Quotes.Skip(skipper).Take(1).First();
         return pick.ToQuoteModel(pick.QuoteType);
+    }
+
+    public async Task<IEnumerable<Quote>> Search(string searchTerm)
+    {
+        var results = _dbContext.Quotes.Where(q => q.QuoteText.Contains(searchTerm));
+        return results.Select(q => q.ToQuoteModel(q.QuoteType));
     }
 
     public async Task<bool> Delete(int id)

@@ -40,6 +40,12 @@ public static class QuoteService
             return Results.Ok(quote.ToContract());
         });
         
+        app.MapGet("/api/quotes/search/{searchTerm}", async (string searchTerm, IQuoteRepository quoteRepository, HttpContext httpContext) =>
+        {
+            var quotes = await quoteRepository.Search(searchTerm);
+            return Results.Ok(quotes.Select(q => q.ToContract()));
+        });
+        
         return app;
     }
 }

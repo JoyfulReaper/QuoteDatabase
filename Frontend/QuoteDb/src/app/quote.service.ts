@@ -30,4 +30,9 @@ export class QuoteService {
     const url = `${this.baseUrl}/api/quotes/random`;
     return await firstValueFrom(this.http.get<Quote>(url));
   }
+
+  async searchQuotes(searchTerm: string) {
+    const url = `${this.baseUrl}/api/quotes/search/${searchTerm}`;
+    return await firstValueFrom(this.http.get<Quote[]>(url));
+  }
 }

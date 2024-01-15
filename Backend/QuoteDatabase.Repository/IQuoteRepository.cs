@@ -8,4 +8,5 @@ public interface IQuoteRepository
     Task<bool> Delete(int id);
     Task<IEnumerable<Quote>> GetAll();
     Task<Quote> GetRandom();
+    Task<IEnumerable<Quote>> Search(string searchTerm);
 }
