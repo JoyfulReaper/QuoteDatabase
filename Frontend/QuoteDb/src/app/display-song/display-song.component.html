@@ -1,1 +1,16 @@
-<p>display-song works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Song Quote</h1>
+            <h4>
+                {{ song.text }} - {{ song.authorDisplay }}
+            </h4>
+            <p>
+                <span class="fw-bold">Title: </span>{{ song.title }} <br />
+                <span class="fw-bold">Artist: </span>{{ song.artist }} <br />
+                <span *ngIf="song.album"><span class="fw-bold">Album: </span>{{song.album}}<br /></span>
+                <span *ngIf="song.track"><span class="fw-bold">Track: </span>{{song.track}}<br /></span>
+            </p>
+        </div>
+    </div>
+</div>

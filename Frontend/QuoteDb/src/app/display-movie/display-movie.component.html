@@ -1,1 +1,15 @@
-<p>display-movie works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Book Quote</h1>
+            <h4>
+                {{ movie.text }} - {{ movie.authorDisplay }}
+            </h4>
+            <p>
+                <span class="fw-bold">Title: </span>{{ movie.title }} <br />
+                <span class="fw-bold">Character: </span>{{ movie.characterName }} <br />
+                <span *ngIf="movie.actorName"><span class="fw-bold">Actor: </span>{{movie.actorName}}<br /></span>
+            </p>
+        </div>
+    </div>
+</div>

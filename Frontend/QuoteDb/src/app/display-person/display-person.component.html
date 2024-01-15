@@ -1,1 +1,14 @@
-<p>display-person works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Person Quote</h1>
+            <h4>
+                {{ person.text }} - {{ person.authorDisplay }}
+            </h4>
+            <p>
+                <span class="fw-bold">First Name: </span>{{ person.firstName }} <br />
+                <span *ngIf="person.lastName"><span class="fw-bold">Last Name: </span>{{person.lastName}}<br /></span>
+            </p>
+        </div>
+    </div>
+</div>

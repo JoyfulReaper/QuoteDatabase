@@ -1,1 +1,16 @@
-<p>display-book works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Book Quote</h1>
+            <h4>
+                {{ book.text }} - {{ book.authorDisplay }}
+            </h4>
+            <p>
+                <span class="fw-bold">Title: </span>{{ book.title }} <br />
+                <span class="fw-bold">Author: </span>{{ book.author }} <br />
+                <span *ngIf="book.chapter"><span class="fw-bold">Chapter: </span>{{book.chapter}}<br /></span>
+                <span *ngIf="book.page"><span class="fw-bold">Page: </span>{{book.page}}<br /></span>
+            </p>
+        </div>
+    </div>
+</div>
